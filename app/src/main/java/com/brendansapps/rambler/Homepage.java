@@ -32,6 +32,7 @@ public class Homepage extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
     }
 
     @Override
@@ -74,13 +75,21 @@ public class Homepage extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_home) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_news) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_campus_life) {
+
+        } else if (id == R.id.nav_commentary) {
+
+        } else if (id == R.id.nav_arts_entertainment) {
+
+        } else if (id == R.id.nav_sports_health) {
+
+        } else if (id == R.id.nav_campus_conversations) {
+
+        } else if (id == R.id.nav_advisers_corner) {
 
         }
 
