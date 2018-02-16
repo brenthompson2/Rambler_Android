@@ -25,6 +25,8 @@ III) Resources:
 	- Add Custom Menu Items to ActionBar with Settings MENU (Toolbar) by TechBrah
 		- https://youtu.be/wzomye19mfU
 
+	- Fixing the up button: https://stackoverflow.com/questions/36250288/settings-activity-up-button
+
 
 III) Log:
 
@@ -37,12 +39,19 @@ A) Created Settings Activity
 			- `super.onBackPressed();` instead of `startActivity(new Intent(getActivity(), SettingsActivity.class));`
 
 B) Navigated From Homepage to Settings Page
-	- Homepage.java . onOptionsItemSelected()
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        }
+	- https://stackoverflow.com/questions/36250288/settings-activity-up-button
+	- Create new listener and call finish()
+		`
+		@Override
+	    public boolean onOptionsItemSelected(MenuItem item) {
+	        int id = item.getItemId();
+	        if (id == android.R.id.home) {
+	             finish();
+	             return true;
+	        }
+	        return super.onOptionsItemSelected(item);
+	    }
+	    `
 
 C) up button in action bar not returning to Homepage activity
 
