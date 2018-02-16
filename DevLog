@@ -1,0 +1,152 @@
+DevLog for Rambler Prototype
+Brendan Thompson
+
+===========================
+
+==============================
+========== 02/15/18 ==========
+==============================
+
+I) Summary
+	A) Created Settings Activity
+
+II) Takeaways:
+
+III) Resources:
+	- ANDROID TASK MAKER APP 3 (Detail Activity, Settings Activity) by Delaroy Studios
+		- https://youtu.be/jDBZWz6ALUk
+
+
+III) Log:
+
+A) Created Settings Activity
+	- file > new > Activity > Settings Activity
+	- didn't set a hierarchical parent
+
+B) Navigated From Homepage to Settings Page
+	- MainActivity.xml . onOptionsItemSelected()
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+==============================
+========== 02/13/18 ==========
+==============================
+
+I) Summary
+	A) Merged bt_layout_prototype to Master
+	B) Looked into Content Page Layout
+
+II) Takeaways:
+
+III) Log:
+
+A) Merged bt_layout_prototype to Master
+	- used GitHub web UI
+
+B) Looked into Content Page Layout
+	- https://youtube.com/watch?v=V5SYtCgqD1o
+
+==============================
+========== 02/11/18 ==========
+==============================
+
+I) Summary
+	A) Switched Back to Sidenav
+	B) Set Colors again
+	C) Set Toolbar Logo again
+	D) Researched Push Notifications
+
+II) Takeaways:
+	- & in xml is &amp;
+		- "sports &amp; health"
+
+III) Log:
+
+A) Switched back to Sidenav
+	- Reason: Not a part of the Material Design guidelines
+		- https://material.io/guidelines/patterns/navigation.html#navigation-combined-patterns
+	- Created new branch off master bt_layout_prototype_sidenav
+
+B) Set Colors again
+
+C) Set Toolbar Logo again
+
+D) Researched Push Notifications
+	- Wordpress Plugins:
+		* https://wordpress.org/plugins/push-notifications-for-wp/
+
+
+==============================
+========== 02/09/18 ==========
+==============================
+
+I) Summary
+	A) Created App Icons
+	B) Set Default Colors
+	C) Removed Sidebar
+	D) Implemented Horizontal Nav
+	E) Added R Logo to Toolbar
+
+II) Log:
+
+A) Created App Icons
+	- Icon Generator:
+	- Generated Icons and saved them in app > src > main > res
+		- mipmap-*
+
+B) Default Colors:
+	- app > res > colors.xml
+	- used shade picker for colorPrimary Dark #7d1b2a
+		- http://www.color-hex.com/color/9d2235
+
+C) Removed Sidebar
+	- File -> new -> Activity -> Empty Activity -> Add to Launcher
+	- Removed old activity from AnroidManifest.xml
+	- Deleted layouts and homepage activity
+
+D) Implemented Horizontal Nav
+	- Used HorizontalScrollView Object & Buttons
+	- https://www.youtube.com/watch?v=issWruPBcWc
+	`
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News"/>
+            ...
+        </LinearLayout>
+    </HorizontalScrollView>
+    `
+
+E) Added R logo to toolbar
+	- https://www.youtube.com/watch?v=GsbYYY6wlx0
+	- res > values > styles.xml
+		- set style parent="Them.AppCompat.Light.NoActionBar"
+	- New Toolbar in activity_main.xml
+		- android:theme="@style/MyTheme"
+
+
+
+==============================
+========== 02/08/18 ==========
+==============================
+
+I) Summary
+	- Starting bt_layout_prototype branch
+
+II) Log:
+
+A) Starting bt_layout_prototype branch
+	- VCS -> branch -> new -> bt_layout_prototype
+	- VCS -> git -> push -> ok
