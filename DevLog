@@ -11,25 +11,40 @@ I) Summary
 	A) Created Settings Activity
 
 II) Takeaways:
+	- dp = pixel density
+	- sp = scaled pixel density
+		- good for making textSize relative to device Text Size settings
 
 III) Resources:
 	- ANDROID TASK MAKER APP 3 (Detail Activity, Settings Activity) by Delaroy Studios
 		- https://youtu.be/jDBZWz6ALUk
+
+	- Providing Up Navigation
+		- https://developer.android.com/training/implementing-navigation/ancestral.html
+
+	- Add Custom Menu Items to ActionBar with Settings MENU (Toolbar) by TechBrah
+		- https://youtu.be/wzomye19mfU
 
 
 III) Log:
 
 A) Created Settings Activity
 	- file > new > Activity > Settings Activity
-	- didn't set a hierarchical parent
+	- Set as hierarchical parent after the fact
+		- Providing Up Navigation: https://developer.android.com/training/implementing-navigation/ancestral.html
+		- add `android:parentActivityName=".Homepage"` to AndroidManifest.xml
+		- Edit onOptionsItemSelected()... case android.R.id.home
+			- `super.onBackPressed();` instead of `startActivity(new Intent(getActivity(), SettingsActivity.class));`
 
 B) Navigated From Homepage to Settings Page
-	- MainActivity.xml . onOptionsItemSelected()
+	- Homepage.java . onOptionsItemSelected()
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             return true;
         }
+
+C) up button in action bar not returning to Homepage activity
 
 ==============================
 ========== 02/13/18 ==========

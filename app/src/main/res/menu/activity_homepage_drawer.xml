@@ -5,26 +5,26 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:title="News" />
+            android:id="@+id/nav_news"
+            android:title="@string/nav_news" />
         <item
-            android:id="@+id/nav_gallery"
-            android:title="Campus Life" />
+            android:id="@+id/nav_campus_life"
+            android:title="@string/nav_campus_life" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:title="Commentary" />
+            android:id="@+id/nav_commentary"
+            android:title="@string/nav_commentary" />
         <item
-            android:id="@+id/nav_manage"
-            android:title="Arts &amp; Entertainment" />
+            android:id="@+id/nav_arts_entertainment"
+            android:title="@string/nav_arts_entertainment" />
         <item
-            android:id="@+id/nav_manage"
-            android:title="Sports &amp; Health" />
+            android:id="@+id/nav_sports_health"
+            android:title="@string/nav_sports_health" />
         <item
-            android:id="@+id/nav_manage"
-            android:title="Campus Conversations" />
+            android:id="@+id/nav_campus_conversations"
+            android:title="@string/nav_campus_conversations" />
         <item
-            android:id="@+id/nav_manage"
-            android:title="Adviser's Corner" />
+            android:id="@+id/nav_advisers_corner"
+            android:title="@string/nav_advisers_corner" />
     </group>
 
 </menu>
