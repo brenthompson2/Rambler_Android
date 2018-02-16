@@ -94,10 +94,31 @@
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
 
-    <string name="pref_title_new_message_notifications">New message notifications</string>
+    <string name="pref_title_allow_notifications">Allow notifications</string>
+
+    <string name="pref_title_subscribe">Subscribe to a Category</string>
+    <string-array name="pref_list_categories">
+        <item>News</item>
+        <item>Campus Life</item>
+        <item>Commentary</item>
+        <item>Arts &amp; Entertainment</item>
+        <item>Sports &amp; Health</item>
+        <item>Campus Conversations</item>
+        <item>Adviser\'s Corner</item>
+    </string-array>
+    <string-array name="pref_list_categories_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
 
     <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="not_implemented">Not  Implemented</string>
 </resources>
