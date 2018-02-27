@@ -1,7 +1,33 @@
 DevLog for Rambler Prototype
 Brendan Thompson
 
-===========================
+==============================
+
+==============================
+========== 02/24/18 ==========
+==============================
+
+I) Summary
+	A) Set New Colors
+	B) Changed string for Setting "data & sync" to "Account"
+
+II) Takeaways:
+
+III) Resources:
+	- This app's Software Requirements Specification
+
+III) Log:
+
+A) Set New Colors
+	- res > values > colors
+	Primary: #9E2235
+	Primary Dark: #8D1E2F
+	Primary Light: #D53A5E
+	Secondary: #DFD1A8
+	Tertiary: #C4BFB5
+
+B) Changed string for Setting "data & sync" to "Account"
+	- res > values > strings.xml
 
 ==============================
 ========== 02/15/18 ==========
@@ -9,6 +35,9 @@ Brendan Thompson
 
 I) Summary
 	A) Created Settings Activity
+	B) Navigated From Homepage to Settings Page
+	C) Fixed up button in action bar to return to Homepage activity
+	D) Customized Some Settings
 
 II) Takeaways:
 	- dp = pixel density
@@ -40,6 +69,8 @@ A) Created Settings Activity
 
 B) Navigated From Homepage to Settings Page
 	- https://stackoverflow.com/questions/36250288/settings-activity-up-button
+
+C) up button in action bar not returning to Homepage activity
 	- Create new listener and call finish()
 		`
 		@Override
@@ -53,7 +84,16 @@ B) Navigated From Homepage to Settings Page
 	    }
 	    `
 
-C) up button in action bar not returning to Homepage activity
+D) Customized Some Settings
+	- changed a setting to "Allow Notifications"
+	- Added another list to Subscribe
+		- Created list in strings.xml
+		- Should use MultiSelectListPreference
+	- Added subscribe as a dependency of allowing
+	- Removed something from Data & Sync
+
+E) Edited SideNavigation background gradient
+	- res > drawable > side_nav_bar.xml
 
 ==============================
 ========== 02/13/18 ==========
