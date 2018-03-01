@@ -4,19 +4,156 @@ Brendan Thompson
 ==============================
 
 ==============================
+========== 02/27/18 ==========
+==============================
+
+I) === Summary: ===
+	A) Undid committing & pushing Applications ID change (removed last 2 commits from remote)
+
+II) === Takeaways: ===
+
+III) === Resources: ===
+
+- Resetting head locally and remotely
+	- https://ncona.com/2011/07/how-to-delete-a-commit-in-git-local-and-remote/
+	- https://stackoverflow.com/questions/29616173/how-to-reset-to-my-last-commit-in-android-studio
+
+III) === Log: ===
+
+A) Undid committing & pushing Applications ID change (removed last 2 commits from remote)
+	1) Saved a backup copy of the whole folder
+	2) Reverted all changes
+		- VCS -> Git -> Revert -> Check All
+	3) Reset commits locally
+		- VCS -> reset HEAD -> Hard -> 3305f24cc32242f7283e779de40db8bfbc5b5103
+			- that commit id is from the GitHub website for the commit I want to be the new head
+			- clicking validate pops up files changed that will be like the equivalent of `git show`
+			- https://stackoverflow.com/questions/29616173/how-to-reset-to-my-last-commit-in-android-studio
+	4) Remove Unversioned Files (2 Classes & google-services.json)
+	5) Forced the push
+		- VCS -> git -> push -> force
+
+B) Caught back up to where I was (except the ID change)
+	1) Reset new colors
+		- (see 02/26/18.III.E)
+	2) Re-added Firebase to the app
+		- Tools -> Firebase -> Cloud Messaging -> Set up Firebase Cloud Messaging
+		- Connect to Firebase -> Selected app already built
+		- Add FCM
+
+
+
+==============================
+========== 02/26/18 ==========
+==============================
+
+I) === Summary: ===
+	A) Added Push Notification Plugin to WordPress
+	B) Started Setup Push Notification plugin for Android
+	C) Started setup Push Notifications within Android
+	D) Created Firebase project for push notifications
+	E) Set official colors
+
+II) === Takeaways: ===
+	- WordPress Plugin send a message to firebase which sends the message to all phones who registered using the app id (com.transyrambler.rambler) and their instance id
+	- DeviceRegistrationFirebase.java = registration
+		- Not working properly
+	- MessageHandlerFirebase.java = handle messages
+		- Not work properly
+	- The firebase is set up with my personal email since it wouldn't let me make an account with my transy email
+	- The test notification I sent apparently went to two devices, so it looks like registration is working (both the emulator and my phone)
+	- Not seeing the log statements in Logcat though...
+		- therefore don't know if the MessageHandling is working
+	- Changing the app ID might have messed things up
+		- most of the app is in `java > com > brendansapps.rambler` -just the MessageHandler is in `java > com > transyrambler.rambler`
+
+III) === Resources: ===
+	- https://delitestudio.com/wordpress/push-notifications-for-wordpress/configuring-android-push-notifications/
+	- https://firebase.google.com/docs/cloud-messaging/android/start/
+	- https://www.youtube.com/watch?v=nwUVq2UPQM8
+
+III) === Log: ===
+
+A) Added Push Notification Plugin to WordPress
+	- Getting to the WordPress Dashboard for the staging site
+		1) Log into GoDaddy
+		2) My Products
+		3) Managed WordPress -> Manage All
+		4) www.transyrambler.com -> staging -> Manage
+		5) Staging WP Admin
+	- Added plugin
+		1) Plugins -> Add New
+		2) Search "Push Notifications"
+		3) Install Now "Push Notifications for WordPress (Lite)" by Delite Studio S.r.l.
+
+B) Setup Android Push Notifications from WordPress plugin
+	- Get to staging site WordPress Dashboard
+	- Push Notifications -> Settings -> Android
+	- Check box "send push notifications to Android devices"
+	- Set Server Key (see part C)
+
+
+C) Setting up Push Notifications within Android
+	- https://delitestudio.com/wordpress/push-notifications-for-wordpress/configuring-android-push-notifications/
+	- https://firebase.google.com/docs/cloud-messaging/android/start/
+	- https://www.youtube.com/watch?v=nwUVq2UPQM8
+	1) Create a Firebase project online (see part D)
+	2) Set Application ID
+		- build.gradle
+		- com.transyrambler.rambler
+	3) Add Firebase to the App
+		- tools -> Firebase
+		- connect to existing -> Transylvania Rambler
+			- Because I already did section D
+	4) Add FCM to the app
+		- automatically added two dependencies to the files
+	5) Handle InstanceID Registration
+		- Right Click on (app>java>com.brendansapp.rambler)-> New -> Java Class
+		- DeviceRegistrationFirebase
+		- extends FirebaseInstanceIdService
+		- override onTokenRefresh()
+			- Gets the token but does not yet registered it with the server
+	6) Handle Messages
+		- Right Click on (app>java>com.brendansapp.rambler)-> New -> Service
+		- MessageHandlerFirebase\
+		- extends FirebaseMessagingService
+		- override onMessageReceived
+			- check from, data, and notification fields
+
+D) Created Firebase project online for push notifications
+	- used brenthompson2@gmail.com
+	- "Transylvania Rambler"
+
+E) Set Official Colors
+    <color name="colorPrimary">#9D2336</color>
+    <color name="colorPrimaryDark">#8D1E2F</color>
+    <color name="colorPrimaryLight">#CE2C45</color>
+    <color name="colorSecondary">#DFD1A8</color>
+    <color name="colorTertiary">#C4BFB5</color>
+    <color name="colorOffBlack">#303030</color>
+
+
+
+
+==============================
 ========== 02/24/18 ==========
 ==============================
 
-I) Summary
+I) === Summary ===
 	A) Set New Colors
 	B) Changed string for Setting "data & sync" to "Account"
 
-II) Takeaways:
+II) === Takeaways: ===
+	Primary: #9E2235
+	Primary Dark: #8D1E2F
+	Primary Light: #D53A5E
+	Secondary: #DFD1A8
+	Tertiary: #C4BFB5
 
-III) Resources:
+III) === Resources: ===
 	- This app's Software Requirements Specification
 
-III) Log:
+III) === Log: ===
 
 A) Set New Colors
 	- res > values > colors
@@ -33,18 +170,18 @@ B) Changed string for Setting "data & sync" to "Account"
 ========== 02/15/18 ==========
 ==============================
 
-I) Summary
+I) === Summary ===
 	A) Created Settings Activity
 	B) Navigated From Homepage to Settings Page
 	C) Fixed up button in action bar to return to Homepage activity
 	D) Customized Some Settings
 
-II) Takeaways:
+II) === Takeaways: ===
 	- dp = pixel density
 	- sp = scaled pixel density
 		- good for making textSize relative to device Text Size settings
 
-III) Resources:
+III) === Resources: ===
 	- ANDROID TASK MAKER APP 3 (Detail Activity, Settings Activity) by Delaroy Studios
 		- https://youtu.be/jDBZWz6ALUk
 
@@ -57,7 +194,7 @@ III) Resources:
 	- Fixing the up button: https://stackoverflow.com/questions/36250288/settings-activity-up-button
 
 
-III) Log:
+III) === Log: ===
 
 A) Created Settings Activity
 	- file > new > Activity > Settings Activity
